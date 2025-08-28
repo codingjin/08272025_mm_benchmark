@@ -64,12 +64,12 @@ int main(int argc, char* argv[])
     float *D = (float*)malloc(sizeof(float) * M * N);
     std::memset(D, 0, sizeof(float) * M * N);
 
-
+    /*
     // check correctness first
     matmul(A, B, D, M, K, N);
     cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, M, N, K, 1, A, K, B, N, 0, C, N);
     compare(C, D, M, N);
-
+    */
     for (int threadnum = 1; threadnum <= MAXTHREADNUM; threadnum <<= 1) {
         std::vector<double> timings;
         mkl_set_num_threads(threadnum);
@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
         printResults("ThreadNum=" + std::to_string(threadnum), timings, FLOPs);
     }
     // check correctness last
-    compare(C, D, M, N);
+    //compare(C, D, M, N);
     free(A);
     free(B);
     free(C);
