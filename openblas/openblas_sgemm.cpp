@@ -7,7 +7,6 @@
 #include <algorithm>
 #include <filesystem>
 #include <string>
-#include <format>
 #include <random>
 #include <cmath>
 #include <unordered_map>
